@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.ogsteam.ogspy.data.DatabaseAccountHandler;
+import com.ogsteam.ogspy.data.DatabaseMessagesHandler;
 import com.ogsteam.ogspy.data.DatabasePreferencesHandler;
 import com.ogsteam.ogspy.data.models.Account;
 import com.ogsteam.ogspy.fragments.tabs.TabsFragmentActivity;
@@ -80,7 +81,9 @@ public class OgspyActivity extends TabsFragmentActivity {
 
     // Variables
 	public static DatabaseAccountHandler handlerAccount;
-	public DatabasePreferencesHandler handlerPrefs;
+	public static DatabasePreferencesHandler handlerPrefs;
+    public static DatabaseMessagesHandler handlerMessages;
+
 	public static NotificationProvider notifProvider;
     public static CommonUtilities commonUtilities;
 
@@ -129,6 +132,8 @@ public class OgspyActivity extends TabsFragmentActivity {
 
 		handlerAccount = new DatabaseAccountHandler(this);
 		handlerPrefs = new DatabasePreferencesHandler(this);
+        handlerMessages = new DatabaseMessagesHandler(this);
+
 		commonUtilities = new CommonUtilities(this);
 		notifProvider = new NotificationProvider(this);
 
